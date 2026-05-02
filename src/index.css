@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gobold');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Near-black with the faintest blue undertone */
+    --background: 230 25% 3%;
+    --foreground: 0 0% 100%;
+
+    --card: 230 22% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 230 22% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 43 53% 54%;
+    --primary-foreground: 230 25% 3%;
+
+    --secondary: 230 20% 7%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 230 18% 9%;
+    --muted-foreground: 40 12% 75%;
+
+    --accent: 43 53% 54%;
+    --accent-foreground: 230 25% 3%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 18% 11%;
+    --input: 230 20% 7%;
+    --ring: 43 53% 54%;
+
+    /* Brand */
+    --gold: 43 53% 54%;
+    --gold-muted: 43 35% 42%;
+    --cream: 0 0% 100%;
+    --ink: 230 25% 3%;
+    --ink-elevated: 230 22% 5%;
+
+    --radius: 0;
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 40 30% 92%;
+    --sidebar-primary: 43 74% 52%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 40 30% 92%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 43 74% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  h1, h2, h3, h4, .serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--gold));
+    color: hsl(var(--ink));
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+
+  .font-gobold {
+    font-family: 'Gobold', 'Gobold Bold', 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  /* Cracked wall effect — solid gold fill, dark cracks overlaid for legibility */
+  .text-cracked {
+    position: relative;
+    display: inline-block;
+    color: hsl(var(--gold));
+    text-shadow:
+      0 1px 0 hsl(0 0% 0% / 0.55),
+      0 2px 18px hsl(var(--gold) / 0.12);
+  }
+  .text-cracked::before,
+  .text-cracked::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    white-space: pre-line;
+    pointer-events: none;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  /* Subtle stone grain inside the letters */
+  .text-cracked::before {
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 320px 320px;
+    background-repeat: repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+  }
+  /* Hairline cracks scaled to the headline box */
+  .text-cracked::after {
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' opacity='0.9'%3E%3Cpath d='M40 80 L160 110 L260 70 L380 140 L520 100 L660 160 L780 130' stroke-width='1.1'/%3E%3Cpath d='M0 230 L120 250 L230 210 L360 280 L490 240 L620 300 L800 260' stroke-width='1.1'/%3E%3Cpath d='M260 70 L230 210 L210 380' stroke-width='1.4'/%3E%3Cpath d='M520 100 L490 240 L470 380' stroke-width='1.4'/%3E%3Cpath d='M120 0 L160 110 L120 250 L140 400' stroke-width='1'/%3E%3Cpath d='M660 0 L660 160 L620 300 L640 400' stroke-width='1'/%3E%3Cpath d='M380 140 L420 280 L400 400' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+  }
+  @media (max-width: 640px) {
+    .text-cracked::before { opacity: 0.4; }
+    .text-cracked::after { opacity: 0.7; }
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+
+  /* Shared hero H1 — single source of truth for headline scale across every page */
+  .hero-h1 {
+    font-family: 'Gobold', 'Gobold Bold', 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: clamp(2.75rem, 9vw, 8rem);   /* 44px → 128px */
+    line-height: 0.9;
+    letter-spacing: -0.005em;
+    color: hsl(var(--cream));
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+  }
+  @media (min-width: 1024px) {
+    .hero-h1 { font-size: clamp(6rem, 8.5vw, 9rem); } /* up to 144px on desktop */
+  }
+
+  /* Primary cinematic CTA — gold, shimmer sweep on hover, lifts on press */
+  .btn-don {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+    background: linear-gradient(180deg, hsl(43 60% 60%) 0%, hsl(var(--gold)) 55%, hsl(43 50% 48%) 100%);
+    color: hsl(var(--ink));
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    padding: 1rem 1.75rem;
+    border: 1px solid hsl(43 60% 65% / 0.5);
+    box-shadow:
+      0 1px 0 hsl(43 80% 75% / 0.6) inset,
+      0 -1px 0 hsl(43 60% 30% / 0.4) inset,
+      0 10px 30px -8px hsl(var(--gold) / 0.45),
+      0 0 0 0 hsl(var(--gold) / 0);
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 280ms ease,
+                background 280ms ease;
+    overflow: hidden;
+    isolation: isolate;
+    cursor: pointer;
+  }
+  .btn-don::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, hsl(0 0% 100% / 0.45) 50%, transparent 70%);
+    transform: translateX(-110%);
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .btn-don > * { position: relative; z-index: 2; }
+  .btn-don:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 hsl(43 80% 80% / 0.7) inset,
+      0 -1px 0 hsl(43 60% 30% / 0.4) inset,
+      0 18px 40px -10px hsl(var(--gold) / 0.6),
+      0 0 0 4px hsl(var(--gold) / 0.15);
+  }
+  .btn-don:hover::before { transform: translateX(110%); }
+  .btn-don:active { transform: translateY(0); }
+  .btn-don .arrow {
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-don:hover .arrow { transform: translateX(4px); }
+
+  /* Secondary text link CTA — for "What is inside" / "For those who listen." */
+  .btn-don-ghost {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: hsl(var(--cream) / 0.8);
+    border-bottom: 1px solid hsl(var(--cream) / 0.3);
+    padding-bottom: 0.25rem;
+    transition: color 220ms ease, border-color 220ms ease;
+  }
+  .btn-don-ghost:hover {
+    color: hsl(var(--gold));
+    border-color: hsl(var(--gold));
+  }
+
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
