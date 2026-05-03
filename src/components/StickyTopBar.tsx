@@ -53,15 +53,6 @@ export const StickyTopBar = () => {
           {/* Social icons — desktop only */}
           <div className="hidden md:flex items-center gap-1">
             <a
-              href="https://youtube.com/@donmimmocatalano"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="p-2 text-cream hover:text-gold transition-colors"
-            >
-              <YouTubeIcon />
-            </a>
-            <a
               href="https://www.instagram.com/donmimmocatalano"
               target="_blank"
               rel="noopener noreferrer"
@@ -78,6 +69,15 @@ export const StickyTopBar = () => {
               className="p-2 text-cream hover:text-gold transition-colors"
             >
               <TikTok />
+            </a>
+            <a
+              href="https://youtube.com/@donmimmocatalano"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="p-2 text-cream hover:text-gold transition-colors"
+            >
+              <YouTubeIcon />
             </a>
           </div>
 
@@ -127,15 +127,6 @@ export const StickyTopBar = () => {
           </a>
           <div className="flex items-center justify-center gap-4 pt-4">
             <a
-              href="https://youtube.com/@donmimmocatalano"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="p-2 text-cream hover:text-gold transition-colors"
-            >
-              <YouTubeIcon />
-            </a>
-            <a
               href="https://www.instagram.com/donmimmocatalano"
               target="_blank"
               rel="noopener noreferrer"
@@ -152,6 +143,15 @@ export const StickyTopBar = () => {
               className="p-2 text-cream hover:text-gold transition-colors"
             >
               <TikTok />
+            </a>
+            <a
+              href="https://youtube.com/@donmimmocatalano"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="p-2 text-cream hover:text-gold transition-colors"
+            >
+              <YouTubeIcon />
             </a>
           </div>
         </nav>

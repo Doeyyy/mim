@@ -62,7 +62,7 @@ export const AudienceProof = () => {
                 </span>
                 <div className="leading-tight">
                   <p className="text-cream text-sm font-semibold">donmimmocatalano</p>
-                  <p className="text-cream/50 text-xs serif italic">Naples · Italy</p>
+                  <p className="text-cream/50 text-xs serif italic">Calabria · Italy</p>
                 </div>
                 <span className="ml-auto text-cream/60 text-lg">···</span>
               </div>

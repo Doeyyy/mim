@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { StickyTopBar } from "@/components/StickyTopBar";
 import { useReveal } from "@/hooks/use-reveal";
+import { useSEO } from "@/hooks/use-seo";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { CountUp } from "@/components/CountUp";
 import { InstagramEmbed } from "@/components/InstagramEmbed";
@@ -22,22 +23,12 @@ const contactSchema = z.object({
 
 const Partners = () => {
   useReveal();
-
-  useEffect(() => {
-    document.title = "Work With Don Mimmo Catalano — Brand Partnerships";
-    const meta =
-      document.querySelector('meta[name="description"]') ||
-      (() => {
-        const m = document.createElement("meta");
-        m.setAttribute("name", "description");
-        document.head.appendChild(m);
-        return m;
-      })();
-    meta.setAttribute(
-      "content",
+  useSEO({
+    title: "Work With Don Mimmo Catalano — Brand Partnerships",
+    description:
       "Brand partnerships with Don Mimmo Catalano. Selective collaborations with founders, executives and a global audience that listens.",
-    );
-  }, []);
+    path: "/partners",
+  });
 
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
@@ -209,7 +200,7 @@ const Partners = () => {
                   </span>
                   <div className="leading-tight">
                     <p className="text-cream text-sm font-semibold">donmimmocatalano</p>
-                    <p className="text-cream/50 text-xs serif italic">Naples · Italy</p>
+                    <p className="text-cream/50 text-xs serif italic">Calabria · Italy</p>
                   </div>
                   <span className="ml-auto text-cream/60 text-lg">···</span>
                 </div>

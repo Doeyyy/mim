@@ -1,25 +1,16 @@
-import { useEffect } from "react";
 import { StickyTopBar } from "@/components/StickyTopBar";
 import { useReveal } from "@/hooks/use-reveal";
+import { useSEO } from "@/hooks/use-seo";
 
 const TheDonsCode = () => {
   useReveal();
-
-  useEffect(() => {
-    document.title = "The Don's Code — 30 Rules for Power, Loyalty and Leadership";
-    const meta =
-      document.querySelector('meta[name="description"]') ||
-      (() => {
-        const m = document.createElement("meta");
-        m.setAttribute("name", "description");
-        document.head.appendChild(m);
-        return m;
-      })();
-    meta.setAttribute(
-      "content",
-      "The Don's Code by Don Mimmo Catalano — thirty rules for power, loyalty and leadership. A PDF you will read once and keep forever.",
-    );
-  }, []);
+  useSEO({
+    title: "The Don's Code — 30 Rules for Power, Loyalty and Leadership",
+    description:
+      "The Don's Code by Don Mimmo Catalano: thirty rules for power, loyalty and leadership. A PDF you will read once and keep forever.",
+    path: "/the-dons-code",
+    type: "product",
+  });
 
   return (
     <main className="bg-ink text-cream overflow-x-hidden">

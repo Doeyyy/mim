@@ -48,19 +48,10 @@ export const WatchAndFollow = () => {
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="https://youtube.com/@donmimmocatalano"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gold text-ink px-5 py-3 eyebrow hover:bg-cream transition-colors"
-            >
-              <YouTubeIcon />
-              YouTube
-            </a>
-            <a
               href="https://www.instagram.com/donmimmocatalano"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-cream/30 text-cream px-5 py-3 eyebrow hover:border-gold hover:text-gold transition-colors"
+              className="inline-flex items-center gap-2 bg-gold text-ink px-5 py-3 eyebrow hover:bg-cream transition-colors"
             >
               <Instagram />
               Instagram
@@ -73,6 +64,15 @@ export const WatchAndFollow = () => {
             >
               <TikTok />
               TikTok
+            </a>
+            <a
+              href="https://youtube.com/@donmimmocatalano"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-cream/30 text-cream px-5 py-3 eyebrow hover:border-gold hover:text-gold transition-colors"
+            >
+              <YouTubeIcon />
+              YouTube
             </a>
           </div>
         </div>
